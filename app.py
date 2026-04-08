@@ -104,9 +104,9 @@ for ticker in stocks:
     st.write(f"Accuracy: {round(acc, 2)}")
 
     if acc < 0.55:
-        st.error("⚠️ Drift Detected!")
+        st.error(" Drift Detected!")
     else:
-        st.success("✅ Model Stable")
+        st.success(" Model Stable")
 
     # Graph
     st.line_chart(data['Close'])
