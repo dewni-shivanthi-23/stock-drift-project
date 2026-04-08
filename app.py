@@ -38,7 +38,7 @@ import pandas as pd
 import joblib
 import matplotlib.pyplot as plt
 
-st.title("📈 Stock Drift Detection System")
+st.title("Stock Drift Detection System")
 
 ticker = st.text_input("Enter Stock Symbol", "AAPL")
 
@@ -77,14 +77,14 @@ if data.empty:
 preds = model.predict(X)
 acc = (preds == y).mean()
 
-st.write("### 📊 Accuracy:", acc)
+st.write("### Accuracy:", acc)
 
 # Drift check
 if acc < 0.55:
-    st.error("⚠️ Model Drift Detected!")
+    st.error(" Model Drift Detected!")
 else:
-    st.success("✅ Model Stable")
+    st.success(" Model Stable")
 
 # Plot graph
-st.write("### 📉 Stock Price")
+st.write("### Stock Price")
 st.line_chart(data['Close'])
