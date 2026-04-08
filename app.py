@@ -60,11 +60,19 @@ data['RSI'] = 100 - (100 / (1 + rs))
 
 data = data.dropna()
 
+if data.empty:
+    st.error("No data available. Try another stock.")
+    st.stop()
+
 # Load model
 model = joblib.load("model.pkl")
 
 X = data[['MA5', 'MA10']]
 y = data['Target']
+
+if data.empty:
+    st.error("No data available. Try another stock.")
+    st.stop()
 
 preds = model.predict(X)
 acc = (preds == y).mean()
